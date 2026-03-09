@@ -1,0 +1,36 @@
+type Step {
+  spokenText: String!
+  whiteboardText: String
+  highlightText: String
+  permanentHighlight: String
+  drawings: String # JSON string of Drawing[]
+}
+
+type AIResponse {
+  chatAction: String!
+  mode: String!
+  language: String
+  clearBoard: Boolean!
+  steps: [Step!]!
+  audioUrl: String
+  fallback: Boolean
+}
+
+type Query {
+  getAIResponse(prompt: String!, image: String): AIResponse
+}
+
+type Mutation {
+  generateAIResponse(prompt: String!, image: String): AIResponse
+}
+
+type Subscription {
+  onAIResponseGenerated(prompt: String!): AIResponse
+    @aws_subscribe(mutations: ["generateAIResponse"])
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}

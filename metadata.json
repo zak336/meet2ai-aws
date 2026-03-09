@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Remix: AI Classroom",
+  "description": "An AI teacher that explains concepts on a whiteboard with voice and handwriting animation.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}
