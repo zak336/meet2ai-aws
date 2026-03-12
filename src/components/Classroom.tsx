@@ -1294,14 +1294,6 @@ ${image ? "The user has also uploaded an image which is now displayed on the whi
         <div className="flex items-center gap-2 md:gap-3 w-full md:w-2/4 justify-center flex-wrap relative">
           <AudioVisualizer stream={stream} isListening={micOn} />
           <button 
-            onClick={() => setUseAWS(!useAWS)}
-            className={`p-3 rounded-full flex items-center gap-2 ${useAWS ? 'bg-[#FF9900] hover:bg-[#E68A00]' : 'bg-[#3c4043] hover:bg-[#4d5155]'} text-white transition-colors`}
-            title={useAWS ? "Enterprise Mode (AWS Active)" : "Local Mode (AWS Disabled)"}
-          >
-            {useAWS ? <Cloud className="w-5 h-5" /> : <CloudOff className="w-5 h-5" />}
-            <span className="text-xs font-bold hidden lg:block">{useAWS ? 'CLOUD' : 'LOCAL'}</span>
-          </button>
-          <button 
             onClick={toggleMic}
             className={`p-3 rounded-full ${micOn ? (voiceStatus === 'reconnecting' ? 'bg-orange-500 animate-pulse' : 'bg-red-600 hover:bg-red-700 animate-pulse') : 'bg-[#3c4043] hover:bg-[#4d5155]'} text-white transition-colors relative`}
             title={micOn ? (voiceStatus === 'reconnecting' ? "Reconnecting Voice..." : "Stop Listening") : "Start Voice Control"}
